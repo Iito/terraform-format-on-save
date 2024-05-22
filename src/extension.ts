@@ -9,7 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const disposable = vscode.workspace.onDidSaveTextDocument((document: vscode.TextDocument) => {
 
 		if ((document.fileName.endsWith('.tf')) || (document.fileName.endsWith('.tfvars'))) {
-			const terminal = vscode.window.createTerminal({ hideFromUser: false })
+			const terminal = vscode.window.createTerminal({ hideFromUser: true })
 			terminal.sendText(` terraform fmt ${document.fileName}`)
 		}
 	})
