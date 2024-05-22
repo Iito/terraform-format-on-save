@@ -9,14 +9,13 @@ export function activate(context: vscode.ExtensionContext) {
 	const disposable = vscode.workspace.onDidSaveTextDocument((document: vscode.TextDocument) => {
 
 		if ((document.fileName.endsWith('.tf')) || (document.fileName.endsWith('.tfvars'))) {
-			const terminal = vscode.window.createTerminal({ hideFromUser: true })
+			const terminal = vscode.window.createTerminal({ hideFromUser: false })
 			terminal.sendText(`terraform fmt ${document.fileName}`)
 		}
 	})
-
 	
-
 	context.subscriptions.push(disposable);
+
 }
 
 // this method is called when your extension is deactivated

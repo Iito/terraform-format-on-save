@@ -12,9 +12,18 @@
 		"Formatters"
 	],
 	"activationEvents": [
-		"onStartupFinished"
+		"onStartupFinished",
+		"onCommand:terraform-formatter.format"
 	],
 	"main": "./out/extension.js",
+	"contributes": {
+		"commands" : [
+			{
+				"command": "terraform-formatter.format",
+				"title": "Format with Terraform"
+			}
+		]
+	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
